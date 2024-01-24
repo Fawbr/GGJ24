@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Antonio.unity
+    guid: d8080ca3f69d5e04fae12d5cd91847bb
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: cf322c59a64a8ac4e85a3ee346d50c8e
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 3bd06f943888ce34e98d23116714381e
   m_configObjects: {}
