@@ -36,6 +36,8 @@ public class InputReader : ScriptableObject, CustomInputs.IPlayerActions
 
     public event Action PunchEvent;
 
+    public event Action SwingEvent;
+
     public event Action ActionTwoEvent;
 
     public event Action ActionThreeEvent;
@@ -62,6 +64,14 @@ public class InputReader : ScriptableObject, CustomInputs.IPlayerActions
             PunchEvent?.Invoke();
         }
         
+    }
+
+    public void OnSwinging(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Performed)
+        {
+            SwingEvent?.Invoke();
+        }
     }
 
     public void OnActionTwo(InputAction.CallbackContext context)

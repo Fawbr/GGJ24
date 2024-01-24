@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Punching",
+                    "name": "Swinging",
                     "type": "Button",
                     "id": "31ed9c83-9b54-4a04-a574-4e5aad30937f",
                     "expectedControlType": "Button",
@@ -63,6 +63,15 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "eadc58d4-8996-47f4-ae88-0740a65c958a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Punching",
+                    "type": "Button",
+                    "id": "8ee2692b-820a-4c9f-aea7-247cb0d43b7c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -132,7 +141,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Punching",
+                    "action": "Swinging",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -188,6 +197,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Aiming",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c7cb0a2-bc51-49a3-8061-e1f8f9fc6793",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Punching",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
