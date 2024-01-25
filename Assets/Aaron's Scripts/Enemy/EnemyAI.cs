@@ -42,7 +42,7 @@ public class EnemyAI : MonoBehaviour
         {
             bat.SetActive(true);
             nMA.SetDestination(player.transform.position);
-            transform.LookAt(player.transform.position);
+            //transform.LookAt(player.transform.position);
             EnemySwing();
         }
     }
