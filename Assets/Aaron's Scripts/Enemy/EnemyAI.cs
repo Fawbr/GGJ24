@@ -10,8 +10,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] EnemyBrain enemyBrain;
     NavMeshAgent nMA;
     Animator batAnim;
+    [SerializeField] AudioClip homeRun;
+    [SerializeField] AudioSource playerBat;
     [SerializeField] GameObject waypoint;
     [SerializeField] Transform travelNode;
+    [SerializeField] AudioSource screamSource;
+    [SerializeField] List<AudioClip> screams = new List<AudioClip>();
     Rigidbody rb;
     float time;
     [SerializeField] GameObject bat;
@@ -19,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] public bool isAggressive;
     private void OnEnable()
     {
+        screamSource = GetComponent<AudioSource>();
         nMA = GetComponent<NavMeshAgent>();
         enemyBrain = GetComponentInParent<EnemyBrain>();
         nMA.enabled = true;
@@ -95,6 +100,10 @@ public class EnemyAI : MonoBehaviour
             this.enabled = false;
             rb.AddForce(player.transform.forward * 1000f, ForceMode.Force);
             Instantiate(bloodPrefab, transform.position, new Quaternion(0, 0, 0, 0));
+            AudioClip audioScream = screams[Random.Range(0, screams.Count)];
+            playerBat.Play();
+            screamSource.clip = audioScream;
+            screamSource.Play();
         }
     }
 
