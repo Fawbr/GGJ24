@@ -125,5 +125,11 @@ public class PlayerMovementScript : MonoBehaviour
         RawMoveInput = dir;
     }
 
+    private void HandlePause()
+    {
+        input.ToggleActionMaps(input._customInputs.UI);
+
+    }
+
     #endregion
 }

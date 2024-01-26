@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Transform[] travelPoints;
     [SerializeField] GameObject player;
+    [SerializeField] EnemyBrain enemyBrain;
     NavMeshAgent nMA;
     Animator batAnim;
     [SerializeField] GameObject waypoint;
@@ -14,12 +15,16 @@ public class EnemyAI : MonoBehaviour
     Rigidbody rb;
     float time;
     [SerializeField] GameObject bat;
+    [SerializeField] GameObject bloodPrefab;
     [SerializeField] public bool isAggressive;
-    void Awake()
+    private void OnEnable()
     {
         nMA = GetComponent<NavMeshAgent>();
+        enemyBrain = GetComponentInParent<EnemyBrain>();
+        nMA.enabled = true;
+        isAggressive = false;
         rb = GetComponent<Rigidbody>();
-        batAnim = GetComponentInChildren<Animator>();
+        batAnim = bat.GetComponent<Animator>();
         waypoint = GameObject.Find("Waypoints");
         travelPoints = waypoint.GetComponentsInChildren<Transform>();
         NewNode();
@@ -79,15 +84,17 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Bat")
         {
-            Debug.Log(other.gameObject.name);
+            enemyBrain.RemoveFromBrain();
             rb.isKinematic = false;
             nMA.enabled = false;
             this.enabled = false;
             rb.AddForce(player.transform.forward * 1000f, ForceMode.Force);
+            Instantiate(bloodPrefab, transform.position, new Quaternion(0, 0, 0, 0));
         }
     }
 
