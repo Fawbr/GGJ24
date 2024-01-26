@@ -13,7 +13,7 @@ public class DialogueScript : MonoBehaviour
     [SerializeField] List<CinemachineVirtualCamera> virtualCameras = new List<CinemachineVirtualCamera>();
     [SerializeField] float textSpeed;
     [SerializeField] private int index;
-
+    [SerializeField] GameObject bat;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +82,7 @@ public class DialogueScript : MonoBehaviour
             enemyAI.enabled = true;
             enemyAI.isAggressive = false;
         }
+        bat.SetActive(true);
         yield return new WaitForSeconds(2.5f);
         cinemachineCam.gameObject.SetActive(false);
         gameObject.SetActive(false);
